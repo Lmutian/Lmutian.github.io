@@ -4,7 +4,57 @@
   
   
   <entry>
-    <title>Love</title>
+    <title>1.1 配置Kali Linux</title>
+    <link href="/2025/01/07/1.1%20%E9%85%8D%E7%BD%AEKali%20Linux/"/>
+    <url>/2025/01/07/1.1%20%E9%85%8D%E7%BD%AEKali%20Linux/</url>
+    
+    <content type="html"><![CDATA[<h2 id="准备内核头文件"><a href="#准备内核头文件" class="headerlink" title="准备内核头文件"></a>准备内核头文件</h2><p>（1）更新软件包列表。执行命令如下所示：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@Kali:~# apt-get update<br></code></pre></td></tr></table></figure><ul><li>输出结果如下所示</li></ul><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs Text">Binary 20130905-08:50] kali/non-free Translation-en<br>获取：1 http://mirrors.neusoft.edu.cn kali Release.gpg [836 B]<br>获取：2 http://mirrors.neusoft.edu.cn kali/updates Release.gpg [836 B]<br>命中 http://mirrors.neusoft.edu.cn kali Release<br>获取：3 http://mirrors.neusoft.edu.cn kali/updates Release [11.0 kB]<br>命中 http://mirrors.neusoft.edu.cn kali/main i386 Packages<br>命中 http://mirrors.neusoft.edu.cn kali/non-free i386 Packages<br>命中 http://mirrors.neusoft.edu.cn kali/contrib i386 Packages<br>获取：4 http://security.kali.org kali/updates Release.gpg [836 B]<br>……<br>获取：5 http://mirrors.neusoft.edu.cn kali/updates/main i386 Packages [205 kB]<br>获取：6 http://http.kali.org kali Release.gpg [836 B]<br>命中 http://mirrors.neusoft.edu.cn kali/updates/contrib i386 Packages<br>命中 http://http.kali.org kali Release<br>命中 http://mirrors.neusoft.edu.cn kali/updates/non-free i386 Packages<br>获取：7 http://security.kali.org kali/updates Release [11.0 kB]<br>命中 http://http.kali.org kali/main Sources<br>获取：8 http://security.kali.org kali/updates/main i386 Packages [205 kB]<br>忽略 http://mirrors.neusoft.edu.cn kali/contrib Translation-zh_CN<br>忽略 http://mirrors.neusoft.edu.cn kali/contrib Translation-zh<br></code></pre></td></tr></table></figure><ul><li>输出的信息是在更新软件源中指定的软件下载链接。此过程中需要等待一段时间，如果网速好的话，更新的速度会快一点。由于篇幅的原因，这里只列出了一少部分的输出 信息。</li></ul><p>（2）使用apt-get命令准备内核头文件。执行命令如下所示：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs Text">root@Kali:~# apt-get install linux-headers- `uname -r`<br>正在读取软件包列表… 完成<br>正在分析软件包的依赖关系树<br>正在读取状态信息… 完成<br>Package &#x27;linux-headers&#x27; is not installed, so not removed<br>注意，根据正则表达式 3.12-kali1-686-pae 选中了 nvidia-kernel-3.12-kali1- 686-pae<br>注意，根据正则表达式 3.12-kali1-686-pae 选中了 linux-image-3.12-kali1-686-pae<br>注意，根据正则表达式 3.12-kali1-686-pae 选中了 linux-image-3.12-kali1-686- pae-dbg<br>注意，根据正则表达式 3.12-kali1-686-pae 选中了 linux-modules-3.12-kali1- 686-pae<br>注意，根据正则表达式 3.12-kali1-686-pae 选中了 linux-latest-modules-3.12- kali1-686-pae<br>注意，根据正则表达式 3.12-kali1-686-pae 选中了 linux-headers-3.12-kali1- 686-pae<br>注意，选取 linux-image-3.12-kali1-686-pae 而非 linux-modules-3.12-kali1- 686-pae<br>注意，选取 linux-image-686-pae 而非 linux-latest-modules-3.12-kali1-686-pae<br>linux-image-3.12-kali1-686-pae 已经是最新的版本了。<br>linux-image-3.12-kali1-686-pae 被设置为手动安装。<br>linux-image-686-pae 已经是最新的版本了。<br>下列软件包是自动安装的并且现在不需要了：<br>  libmozjs22d libnfc3 libruby libwireshark2 libwiretap2 libwsutil2 python-apsw<br>  ruby-crack ruby-diff-lcs ruby-rspec ruby-rspec-core ruby-rspec-<br>  expectations<br>  ruby-rspec-mocks ruby-simplecov ruby-simplecov-html xulrunner-22.0<br>Use &#x27;apt-get autoremove&#x27; to remove them.<br>将会安装下列额外的软件包：<br>  glx-alternative-mesa glx-alternative-nvidia glx-diversions<br>  linux-headers-3.12-kali1-common linux-kbuild-3.12 nvidia-alternative<br>  nvidia-installer-cleanup nvidia-kernel-common<br>建议安装的软件包：<br>  nvidia-driver<br>下列【新】软件包将被安装：<br>  glx-alternative-mesa glx-alternative-nvidia glx-diversions<br>  linux-headers-3.12-kali1-686-pae linux-headers-3.12-kali1-common<br>  linux-image-3.12-kali1-686-pae-dbg linux-kbuild-3.12 nvidia-alternative<br>  nvidia-installer-cleanup nvidia-kernel-3.12-kali1-686-pae<br>  nvidia-kernel-common<br>升级了 0 个软件包，新安装了 11 个软件包，要卸载 0 个软件包，有 5 个软件包未被升级。<br>需要下载 361 MB 的软件包。<br>解压缩后会消耗掉 1,812 MB 的额外空间。<br>您希望继续执行吗？[Y/n]y<br></code></pre></td></tr></table></figure><ul><li>输出的信息显示了linux-headers相关软件包的一个信息。提示将会安装哪些软件包及软件包的大小等信息。此时输入y，继续安装。安装完后，将退出程序。</li></ul><p>（3）复制generated下的所有内容。执行命令如下所示：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@Kali:~# <span class="hljs-built_in">cd</span> /usr/src/linux-headers-3.12-kali1-686-pae/<br>root@Kali:/usr/src/linux-headers-3.12-kali1-686-pae# <span class="hljs-built_in">cp</span> -rf include/generated/* include/linux/<br></code></pre></td></tr></table></figure><p>（4）编译内核头文件代码</p><p>[文章并未结束，up主正在努力更新中。。。]</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Kali Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>1.0 Kali Linux介绍及安装</title>
+    <link href="/2025/01/06/1.0%20Kali%20Linux%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85/"/>
+    <url>/2025/01/06/1.0%20Kali%20Linux%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Kali-Linux介绍"><a href="#Kali-Linux介绍" class="headerlink" title="Kali Linux介绍"></a>Kali Linux介绍</h2><p>Kali Linux是基于Debian的开源Linux发行版，由Offensive Security社区开发，是一款功能强大的渗透测试工具，提供了各种渗透测试工具，包括网络攻击工具、密码破解工具、漏洞扫描工具、安全审计工具、渗透测试框架、虚拟机管理工具等，是一款功能强大的渗透测试工具，适合于各种渗透测试的场景，Kali Linux安装非常简单，只需要从官网下载ISO镜像文件，然后使用虚拟机软件安装即可。安装完成后，Kali Linux会自动启动，并提供一个图形化的桌面环境，的桌面环境非常简洁，界面简洁、操作简单。Kali Linux的图形化桌面环境支持多种主题，可以根据自己的喜好进行个性化设置。同时Kali Linux的软件库也非常丰富，涵盖了各种网络攻击工具、密码破解工具、漏洞扫描工具、安全审计工具、渗透测试框架、虚拟机管理工具等，它的使用非常简单，只需要打开终端，输入命令即可运行各种工具。Kali Linux的命令行工具也非常强大，可以实现各种高级功能。Kali Linux的性能非常强劲，可以轻松应对各种网络攻击，是一款功能强大的渗透测试工具，适合于各种渗透测试的场景。</p><h2 id="Kali-Linux下载"><a href="#Kali-Linux下载" class="headerlink" title="Kali Linux下载"></a>Kali Linux下载</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Text">https://www.kali.org/<br></code></pre></td></tr></table></figure><ul><li>Kali Linux官网</li></ul><h2 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h2><ul><li>注意：虽然kali官网给出的安装方式非常之多，但是up主还是建议小伙伴们将主系统装为kali，这样可以更好的体验kali的各种功能，安装在虚拟机里面部分功能无法使用，but，如果小伙伴们有能力，可以尝试其他的安装方式，比如双系统安装，或者安装在硬盘里面。</li></ul><h2 id="Kali的下载"><a href="#Kali的下载" class="headerlink" title="Kali的下载"></a>Kali的下载</h2><p>1.首先从官网下载 <strong><a href="www.kali.org">Kali Linux</a></strong> 的ISO镜像文件<br><img src="/img/kali/01.png" alt="Kali Linux下载" title="访问官网"></p><p>2.点击 <strong>Download</strong><br><img src="/img/kali/02.png" alt="Kali Linux下载" title="下载"></p><p>3.点击 <strong>Installer Images</strong> 选择 <strong>X86_64</strong> 选择第一个，如图所示<br><img src="/img/kali/03.png" alt="Kali Linux下载" title="选择下载"></p><h2 id="Kali的安装"><a href="#Kali的安装" class="headerlink" title="Kali的安装"></a>Kali的安装</h2><ul><li><p>为其它电脑安装<br>下载好文件后准备一个U盘，U盘的容量只需要8GB就行,Win10系统只需要将U盘插入你要安装的电脑就行，开机后找到你的U盘，右键单击拷贝好的镜像文件点击装载，系统会自动重启到引导界面，关于引导页面如何设置及选择下文会提及。</p></li><li><p>Win10系统安装<br>如果你是Win10系统只需要将U盘插入你要安装的电脑就行，开机后找到你的U盘，右键单击拷贝好的镜像文件点击装载，系统会自动重启到引导界面，关于引导页面如何设置及选择下文会提及。</p></li><li><p>其他操作系统&#x2F;Windows其他版本系统安装<br>如果你是其它操作系统，比如Mac、Linux、Windows其他版本，那么你需要将下载好的ISO镜像文件写入U盘，然后将U盘插入你要安装的电脑，开机后找到U盘，进入BIOS设置，将U盘设置为第一启动项，然后重启电脑，进入安装界面，选择你要安装的语言，点击 <strong>Install Kali Linux</strong> 开始安装，按照提示一步步安装即可。</p></li><li><p>引导页面的设置及选择（具体安装教程）</p></li></ul><p>1.选择  <strong>-Graphical Install-</strong><br>2.选择  <strong>-中文（简体）-</strong><br>3.选择  <strong>-中国-</strong><br>4.选择  <strong>-汉语-</strong><br>5.主机名也就是你自己的电脑名字，如果不知道咋设置这里直接填写  <strong>-Kali-</strong><br>6域名这里up主不建议大家填写，因为这涉及到后面选镜像站，一个好的镜像站可以让你节省很多时间up主这里不推荐填写，大家可以根据自己的地区情况选择一个镜像站，比如清华大学的镜像站。<br>7.设置用户名和密码，这里建议大家设置一个复杂的密码，因为后面会用到很多工具，如果密码太简单，可能会被黑客破解。<br>8.磁盘分区这里选择  <strong>-向导-使用整个磁盘-</strong><br>9.选择  <strong>-将所有文件放到同一个分区-</strong><br>10.选择  <strong>-分区设定结束并将修改写入磁盘-</strong><br>11.选择  <strong>-是-</strong> ！注意选择完这个选项之后你的原有主系统会直接变为Kali Linux ！</p><ul><li>然后就等待安装结束，系统会自动重启，重启的时候就可以拔掉U盘了，到此Kali Linux安装完成。</li></ul><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li>up的教程是基于Kali Linux 2021.1版本的，其它版本的Kali Linux可能会有些许差异，请以实际安装的版本为准。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Kali Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>官宣</title>
     <link href="/2025/01/01/Love/"/>
     <url>/2025/01/01/Love/</url>
     
@@ -13,14 +63,14 @@
     
     <categories>
       
-      <category>Love</category>
+      <category>官宣</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>SXY</tag>
+      <tag>告白</tag>
       
     </tags>
     
